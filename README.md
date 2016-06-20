@@ -206,14 +206,15 @@ if there's no `hello/GET_Authorization=12345--a=b.mock`, we'll default to `hello
 
 ## Relative Timestamp
 
-Instead of using a hardcoded timestamp, you can use relative one, providing number of days to roll back:
+Instead of using a hardcoded timestamp, you can use relative one, providing number of units and the unit name
+(check [momentjs documentation](http://momentjs.com/docs/#/manipulating/add/) for possible units and their shortcuts)
 
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
 {
-   "RelativeTimestamp": <%= timestampXDaysAgo(10) %>
+   "RelativeTimestamp": {% time("-10d") %}
 }
 ```
 
